@@ -1,0 +1,30 @@
+{
+  "name": "mqtt-request",
+  "version": "1.0.0",
+  "description": "make mqtt to be like http",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "tsc && node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aokihu/mqtt-request.git"
+  },
+  "keywords": [
+    "mqtt"
+  ],
+  "author": "aokihu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aokihu/mqtt-request/issues"
+  },
+  "homepage": "https://github.com/aokihu/mqtt-request#readme",
+  "devDependencies": {
+    "@types/mqtt": "^2.5.0",
+    "@types/nanoid": "^2.1.0",
+    "mqtt": "^3.0.0"
+  },
+  "dependencies": {
+    "nanoid": "^2.1.11"
+  }
+}
