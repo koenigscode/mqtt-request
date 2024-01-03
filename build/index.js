@@ -28,7 +28,7 @@ class MqttRequest {
         this._queue.push(queueItem);
         // send topic
         const _requestTopic = this._makeRequestTopic(topic, uuid);
-        this._mqtt.publish(_requestTopic, payload !== null && payload !== void 0 ? payload : null);
+        this._mqtt.publish(_requestTopic, payload !== null && payload !== void 0 ? payload : null, MqttRequest.publishOptions);
     }
     response(topic, callback) {
         const _requestTopic = this._makeRequestTopicForRespose(topic);
@@ -94,4 +94,5 @@ class MqttRequest {
     }
 }
 MqttRequest.timeout = 200; // Request timeout, default is 200ms
+MqttRequest.publishOptions = undefined; // set to e.g. { qos: 1 } to override default publish options
 exports.default = MqttRequest;

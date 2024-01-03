@@ -12,6 +12,7 @@ export type MqttResponseQueueUtem = {
 
 export default class MqttRequest {
   static timeout = 200 // Request timeout, default is 200ms
+  static publishOptions = undefined // set to e.g. { qos: 1 } to override default publish options
 
   private _mqtt: any
   private _cleanTimer: any
@@ -49,7 +50,11 @@ export default class MqttRequest {
 
     // send topic
     const _requestTopic = this._makeRequestTopic(topic, uuid)
-    this._mqtt.publish(_requestTopic, payload ?? null)
+    this._mqtt.publish(
+      _requestTopic,
+      payload ?? null,
+      MqttRequest.publishOptions
+    )
   }
 
   public response(topic: string, callback: (payload: any) => void) {
